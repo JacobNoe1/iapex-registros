@@ -1,0 +1,47 @@
+
+
+<ion-content [fullscreen]="true">
+
+
+  <div class="centrado">
+    <div>
+      <img class="logo" src="assets/img/LogoIAPEX.svg">
+    </div>
+  </div>
+
+  <div id="container-login">
+
+    <div class="ion-padding">
+      <h1 *ngIf="!loading">Inicia tu sesión</h1>
+      <h1 *ngIf="loading">Cargando</h1>
+
+      <div class="centrado">
+        <ion-avatar>
+          <img src="assets/img/user.png">
+        </ion-avatar>
+      </div>
+      <br>
+
+      <ion-progress-bar type="indeterminate" *ngIf="loading"></ion-progress-bar>
+
+
+      <form [formGroup]="form" *ngIf="!loading">
+      <ion-item>
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input type="email" formControlName="usuario"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input  type="password" formControlName="contrasena"></ion-input>
+      </ion-item>
+
+      </form>
+     
+      <br>
+      <ion-button expand="block" size="default" (click)="login()" *ngIf="!loading" >Ingresar</ion-button>
+
+    </div>
+  </div>
+
+</ion-content>
